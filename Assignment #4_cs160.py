@@ -2,21 +2,40 @@ import time
 
 def programmer():
     print("Programmer mode.")
-    num=input("Enter decimal to convert to binary number: ");   
+    con = input("Would you like convert binary or decimal? ")
+    if(con == "decimal"):
+        num=input("Enter decimal to convert to binary number: ");   
 
-    num=int(num);
+        num=int(num);
 
-    if(num == 0):
-        print("digit 1: "+str(num))
-        exit()
-    elif(0<num<=255):
-        for i in range(num):
-            print("digit " +str(i+1)+": " + str(num%2));
-            num = (num//2);
-            if num == 0:
-                break
-    else:
-        print("you entered an invalid input")
+        if(num == 0):
+            print("digit 1: "+str(num))
+            exit()
+        elif(0<num<=255):
+            for i in range(num):
+                print("digit " +str(i+1)+": " + str(num%2));
+                num = (num//2);
+                if num == 0:
+                    break
+        else:
+            print("you entered an invalid input")
+            return
+    elif(con == "binary"):
+        num=input("Enter binary to convert to decimal number: ");   
+        i = int(len(num))
+        dec = 0
+        x = 0
+
+        for i in range (int(len(num)),0,-1):
+        
+            dec = dec + int(num[x])*(2**(i-1))
+            x += 1
+           
+            
+            if (i == 1):
+                print (dec)
+    else: 
+        print("You typed an invalid input.") 
         return
 
 def scientific(x,y):  
